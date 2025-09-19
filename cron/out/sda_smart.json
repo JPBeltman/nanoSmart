@@ -1,0 +1,530 @@
+{
+  "device": "/dev/sda",
+  "timestamp": 1758290595,
+  "smart_data": {
+    "device_info": {
+      "json_format_version": [
+        1,
+        0
+      ],
+      "smartctl": {
+        "version": [
+          7,
+          4
+        ],
+        "pre_release": false,
+        "svn_revision": "5530",
+        "platform_info": "x86_64-linux-6.12.41+deb13-amd64",
+        "build_info": "(local build)",
+        "argv": [
+          "smartctl",
+          "-i",
+          "-j",
+          "/dev/sda"
+        ],
+        "drive_database_version": {
+          "string": "7.3/5528"
+        },
+        "exit_status": 0
+      },
+      "local_time": {
+        "time_t": 1758290595,
+        "asctime": "Fri Sep 19 16:03:15 2025 CEST"
+      },
+      "device": {
+        "name": "/dev/sda",
+        "info_name": "/dev/sda [SAT]",
+        "type": "sat",
+        "protocol": "ATA"
+      },
+      "model_name": "MK0800GEYKE",
+      "serial_number": "BTHV5421047X800OGN",
+      "wwn": {
+        "naa": 5,
+        "oui": 6083300,
+        "id": 1276139086
+      },
+      "firmware_version": "4IWTHPG1",
+      "user_capacity": {
+        "blocks": 1562824368,
+        "bytes": 800166076416
+      },
+      "logical_block_size": 512,
+      "physical_block_size": 4096,
+      "rotation_rate": 0,
+      "form_factor": {
+        "ata_value": 3,
+        "name": "2.5 inches"
+      },
+      "trim": {
+        "supported": true,
+        "deterministic": true,
+        "zeroed": true
+      },
+      "in_smartctl_database": false,
+      "ata_version": {
+        "string": "ACS-2 T13/2015-D revision 3",
+        "major_value": 1020,
+        "minor_value": 272
+      },
+      "sata_version": {
+        "string": "SATA 2.6",
+        "value": 31
+      },
+      "interface_speed": {
+        "max": {
+          "sata_value": 14,
+          "string": "6.0 Gb/s",
+          "units_per_second": 60,
+          "bits_per_unit": 100000000
+        },
+        "current": {
+          "sata_value": 3,
+          "string": "6.0 Gb/s",
+          "units_per_second": 60,
+          "bits_per_unit": 100000000
+        }
+      },
+      "smart_support": {
+        "available": true,
+        "enabled": true
+      }
+    },
+    "smart_attributes": {
+      "json_format_version": [
+        1,
+        0
+      ],
+      "smartctl": {
+        "version": [
+          7,
+          4
+        ],
+        "pre_release": false,
+        "svn_revision": "5530",
+        "platform_info": "x86_64-linux-6.12.41+deb13-amd64",
+        "build_info": "(local build)",
+        "argv": [
+          "smartctl",
+          "-A",
+          "-j",
+          "/dev/sda"
+        ],
+        "drive_database_version": {
+          "string": "7.3/5528"
+        },
+        "exit_status": 0
+      },
+      "local_time": {
+        "time_t": 1758290595,
+        "asctime": "Fri Sep 19 16:03:15 2025 CEST"
+      },
+      "device": {
+        "name": "/dev/sda",
+        "info_name": "/dev/sda [SAT]",
+        "type": "sat",
+        "protocol": "ATA"
+      },
+      "ata_smart_attributes": {
+        "revision": 1,
+        "table": [
+          {
+            "id": 1,
+            "name": "Raw_Read_Error_Rate",
+            "value": 130,
+            "worst": 130,
+            "thresh": 39,
+            "when_failed": "",
+            "flags": {
+              "value": 15,
+              "string": "POSR-- ",
+              "prefailure": true,
+              "updated_online": true,
+              "performance": true,
+              "error_rate": true,
+              "event_count": false,
+              "auto_keep": false
+            },
+            "raw": {
+              "value": 2867333,
+              "string": "2867333"
+            }
+          },
+          {
+            "id": 5,
+            "name": "Reallocated_Sector_Ct",
+            "value": 100,
+            "worst": 100,
+            "thresh": 1,
+            "when_failed": "",
+            "flags": {
+              "value": 51,
+              "string": "PO--CK ",
+              "prefailure": true,
+              "updated_online": true,
+              "performance": false,
+              "error_rate": false,
+              "event_count": true,
+              "auto_keep": true
+            },
+            "raw": {
+              "value": 0,
+              "string": "0"
+            }
+          },
+          {
+            "id": 9,
+            "name": "Power_On_Hours",
+            "value": 100,
+            "worst": 100,
+            "thresh": 0,
+            "when_failed": "",
+            "flags": {
+              "value": 50,
+              "string": "-O--CK ",
+              "prefailure": false,
+              "updated_online": true,
+              "performance": false,
+              "error_rate": false,
+              "event_count": true,
+              "auto_keep": true
+            },
+            "raw": {
+              "value": 33606,
+              "string": "33606"
+            }
+          },
+          {
+            "id": 173,
+            "name": "Unknown_Attribute",
+            "value": 99,
+            "worst": 99,
+            "thresh": 1,
+            "when_failed": "",
+            "flags": {
+              "value": 51,
+              "string": "PO--CK ",
+              "prefailure": true,
+              "updated_online": true,
+              "performance": false,
+              "error_rate": false,
+              "event_count": true,
+              "auto_keep": true
+            },
+            "raw": {
+              "value": 0,
+              "string": "0"
+            }
+          },
+          {
+            "id": 175,
+            "name": "Program_Fail_Count_Chip",
+            "value": 100,
+            "worst": 100,
+            "thresh": 10,
+            "when_failed": "",
+            "flags": {
+              "value": 51,
+              "string": "PO--CK ",
+              "prefailure": true,
+              "updated_online": true,
+              "performance": false,
+              "error_rate": false,
+              "event_count": true,
+              "auto_keep": true
+            },
+            "raw": {
+              "value": 601312800630,
+              "string": "601312800630"
+            }
+          },
+          {
+            "id": 180,
+            "name": "Unused_Rsvd_Blk_Cnt_Tot",
+            "value": 130,
+            "worst": 130,
+            "thresh": 39,
+            "when_failed": "",
+            "flags": {
+              "value": 59,
+              "string": "PO-RCK ",
+              "prefailure": true,
+              "updated_online": true,
+              "performance": false,
+              "error_rate": true,
+              "event_count": true,
+              "auto_keep": true
+            },
+            "raw": {
+              "value": 12041079,
+              "string": "12041079"
+            }
+          },
+          {
+            "id": 194,
+            "name": "Temperature_Celsius",
+            "value": 100,
+            "worst": 100,
+            "thresh": 0,
+            "when_failed": "",
+            "flags": {
+              "value": 34,
+              "string": "-O---K ",
+              "prefailure": false,
+              "updated_online": true,
+              "performance": false,
+              "error_rate": false,
+              "event_count": false,
+              "auto_keep": true
+            },
+            "raw": {
+              "value": 28,
+              "string": "28"
+            }
+          },
+          {
+            "id": 196,
+            "name": "Reallocated_Event_Count",
+            "value": 100,
+            "worst": 100,
+            "thresh": 10,
+            "when_failed": "",
+            "flags": {
+              "value": 51,
+              "string": "PO--CK ",
+              "prefailure": true,
+              "updated_online": true,
+              "performance": false,
+              "error_rate": false,
+              "event_count": true,
+              "auto_keep": true
+            },
+            "raw": {
+              "value": 0,
+              "string": "0"
+            }
+          }
+        ]
+      },
+      "power_on_time": {
+        "hours": 33606
+      },
+      "temperature": {
+        "current": 28
+      }
+    },
+    "smart_health": {
+      "json_format_version": [
+        1,
+        0
+      ],
+      "smartctl": {
+        "version": [
+          7,
+          4
+        ],
+        "pre_release": false,
+        "svn_revision": "5530",
+        "platform_info": "x86_64-linux-6.12.41+deb13-amd64",
+        "build_info": "(local build)",
+        "argv": [
+          "smartctl",
+          "-H",
+          "-j",
+          "/dev/sda"
+        ],
+        "drive_database_version": {
+          "string": "7.3/5528"
+        },
+        "exit_status": 0
+      },
+      "local_time": {
+        "time_t": 1758290595,
+        "asctime": "Fri Sep 19 16:03:15 2025 CEST"
+      },
+      "device": {
+        "name": "/dev/sda",
+        "info_name": "/dev/sda [SAT]",
+        "type": "sat",
+        "protocol": "ATA"
+      },
+      "smart_status": {
+        "passed": true
+      }
+    },
+    "smart_errors": {
+      "json_format_version": [
+        1,
+        0
+      ],
+      "smartctl": {
+        "version": [
+          7,
+          4
+        ],
+        "pre_release": false,
+        "svn_revision": "5530",
+        "platform_info": "x86_64-linux-6.12.41+deb13-amd64",
+        "build_info": "(local build)",
+        "argv": [
+          "smartctl",
+          "-l",
+          "error",
+          "-j",
+          "/dev/sda"
+        ],
+        "drive_database_version": {
+          "string": "7.3/5528"
+        },
+        "exit_status": 0
+      },
+      "local_time": {
+        "time_t": 1758290595,
+        "asctime": "Fri Sep 19 16:03:15 2025 CEST"
+      },
+      "device": {
+        "name": "/dev/sda",
+        "info_name": "/dev/sda [SAT]",
+        "type": "sat",
+        "protocol": "ATA"
+      },
+      "ata_smart_error_log": {
+        "summary": {
+          "revision": 1,
+          "count": 0
+        }
+      }
+    },
+    "smart_selftest": {
+      "json_format_version": [
+        1,
+        0
+      ],
+      "smartctl": {
+        "version": [
+          7,
+          4
+        ],
+        "pre_release": false,
+        "svn_revision": "5530",
+        "platform_info": "x86_64-linux-6.12.41+deb13-amd64",
+        "build_info": "(local build)",
+        "argv": [
+          "smartctl",
+          "-l",
+          "selftest",
+          "-j",
+          "/dev/sda"
+        ],
+        "drive_database_version": {
+          "string": "7.3/5528"
+        },
+        "exit_status": 0
+      },
+      "local_time": {
+        "time_t": 1758290595,
+        "asctime": "Fri Sep 19 16:03:15 2025 CEST"
+      },
+      "device": {
+        "name": "/dev/sda",
+        "info_name": "/dev/sda [SAT]",
+        "type": "sat",
+        "protocol": "ATA"
+      },
+      "ata_smart_self_test_log": {
+        "standard": {
+          "revision": 1,
+          "table": [
+            {
+              "type": {
+                "value": 1,
+                "string": "Short offline"
+              },
+              "status": {
+                "value": 0,
+                "string": "Completed without error",
+                "passed": true
+              },
+              "lifetime_hours": 33371
+            },
+            {
+              "type": {
+                "value": 1,
+                "string": "Short offline"
+              },
+              "status": {
+                "value": 0,
+                "string": "Completed without error",
+                "passed": true
+              },
+              "lifetime_hours": 33143
+            },
+            {
+              "type": {
+                "value": 2,
+                "string": "Extended offline"
+              },
+              "status": {
+                "value": 0,
+                "string": "Completed without error",
+                "passed": true
+              },
+              "lifetime_hours": 33128
+            },
+            {
+              "type": {
+                "value": 1,
+                "string": "Short offline"
+              },
+              "status": {
+                "value": 0,
+                "string": "Completed without error",
+                "passed": true
+              },
+              "lifetime_hours": 33095
+            },
+            {
+              "type": {
+                "value": 1,
+                "string": "Short offline"
+              },
+              "status": {
+                "value": 0,
+                "string": "Completed without error",
+                "passed": true
+              },
+              "lifetime_hours": 33049
+            },
+            {
+              "type": {
+                "value": 1,
+                "string": "Short offline"
+              },
+              "status": {
+                "value": 0,
+                "string": "Completed without error",
+                "passed": true
+              },
+              "lifetime_hours": 33045
+            },
+            {
+              "type": {
+                "value": 1,
+                "string": "Short offline"
+              },
+              "status": {
+                "value": 0,
+                "string": "Completed without error",
+                "passed": true
+              },
+              "lifetime_hours": 32599
+            }
+          ],
+          "count": 7,
+          "error_count_total": 0,
+          "error_count_outdated": 0
+        }
+      }
+    }
+  }
+}

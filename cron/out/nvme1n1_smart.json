@@ -1,5 +1,5 @@
 {
-  "device": "/dev/nvme0n1",
+  "device": "/dev/nvme1n1",
   "timestamp": 1758282926,
   "smart_data": {
     "device_info": {
@@ -20,7 +20,7 @@
           "smartctl",
           "-i",
           "-j",
-          "/dev/nvme0n1"
+          "/dev/nvme1n1"
         ],
         "exit_status": 0
       },
@@ -29,52 +29,52 @@
         "asctime": "Fri Sep 19 13:55:26 2025 CEST"
       },
       "device": {
-        "name": "/dev/nvme0n1",
-        "info_name": "/dev/nvme0n1",
+        "name": "/dev/nvme1n1",
+        "info_name": "/dev/nvme1n1",
         "type": "nvme",
         "protocol": "NVMe"
       },
-      "model_name": "Samsung SSD 990 PRO with Heatsink 2TB",
-      "serial_number": "S766NJ0XA02342T",
-      "firmware_version": "4B2QJXD7",
+      "model_name": "Samsung SSD 980 PRO 1TB",
+      "serial_number": "S5GXNF0W166952E",
+      "firmware_version": "5B2QGXA7",
       "nvme_pci_vendor": {
         "id": 5197,
         "subsystem_id": 5197
       },
       "nvme_ieee_oui_identifier": 9528,
-      "nvme_total_capacity": 2000398934016,
+      "nvme_total_capacity": 1000204886016,
       "nvme_unallocated_capacity": 0,
-      "nvme_controller_id": 1,
+      "nvme_controller_id": 6,
       "nvme_version": {
-        "string": "2.0",
-        "value": 131072
+        "string": "1.3",
+        "value": 66304
       },
       "nvme_number_of_namespaces": 1,
       "nvme_namespaces": [
         {
           "id": 1,
           "size": {
-            "blocks": 3907029168,
-            "bytes": 2000398934016
+            "blocks": 1953525168,
+            "bytes": 1000204886016
           },
           "capacity": {
-            "blocks": 3907029168,
-            "bytes": 2000398934016
+            "blocks": 1953525168,
+            "bytes": 1000204886016
           },
           "utilization": {
-            "blocks": 2952987544,
-            "bytes": 1511929622528
+            "blocks": 1594468408,
+            "bytes": 816367824896
           },
           "formatted_lba_size": 512,
           "eui64": {
             "oui": 9528,
-            "ext_id": 318922324243
+            "ext_id": 761043274314
           }
         }
       ],
       "user_capacity": {
-        "blocks": 3907029168,
-        "bytes": 2000398934016
+        "blocks": 1953525168,
+        "bytes": 1000204886016
       },
       "logical_block_size": 512,
       "smart_support": {
@@ -100,7 +100,7 @@
           "smartctl",
           "-A",
           "-j",
-          "/dev/nvme0n1"
+          "/dev/nvme1n1"
         ],
         "exit_status": 0
       },
@@ -109,40 +109,40 @@
         "asctime": "Fri Sep 19 13:55:26 2025 CEST"
       },
       "device": {
-        "name": "/dev/nvme0n1",
-        "info_name": "/dev/nvme0n1",
+        "name": "/dev/nvme1n1",
+        "info_name": "/dev/nvme1n1",
         "type": "nvme",
         "protocol": "NVMe"
       },
       "nvme_smart_health_information_log": {
         "critical_warning": 0,
-        "temperature": 39,
+        "temperature": 36,
         "available_spare": 100,
         "available_spare_threshold": 10,
         "percentage_used": 0,
-        "data_units_read": 6766320,
-        "data_units_written": 8378938,
-        "host_reads": 24702524,
-        "host_writes": 8824499,
-        "controller_busy_time": 184,
-        "power_cycles": 405,
-        "power_on_hours": 851,
-        "unsafe_shutdowns": 8,
+        "data_units_read": 3819320,
+        "data_units_written": 3236572,
+        "host_reads": 25115486,
+        "host_writes": 10253948,
+        "controller_busy_time": 478,
+        "power_cycles": 733,
+        "power_on_hours": 942,
+        "unsafe_shutdowns": 41,
         "media_errors": 0,
         "num_err_log_entries": 0,
         "warning_temp_time": 0,
         "critical_comp_time": 0,
         "temperature_sensors": [
-          39,
-          43
+          36,
+          42
         ]
       },
       "temperature": {
-        "current": 39
+        "current": 36
       },
-      "power_cycle_count": 405,
+      "power_cycle_count": 733,
       "power_on_time": {
-        "hours": 851
+        "hours": 942
       }
     },
     "smart_health": {
@@ -163,7 +163,7 @@
           "smartctl",
           "-H",
           "-j",
-          "/dev/nvme0n1"
+          "/dev/nvme1n1"
         ],
         "exit_status": 0
       },
@@ -172,8 +172,8 @@
         "asctime": "Fri Sep 19 13:55:26 2025 CEST"
       },
       "device": {
-        "name": "/dev/nvme0n1",
-        "info_name": "/dev/nvme0n1",
+        "name": "/dev/nvme1n1",
+        "info_name": "/dev/nvme1n1",
         "type": "nvme",
         "protocol": "NVMe"
       },
@@ -203,7 +203,7 @@
           "-l",
           "error",
           "-j",
-          "/dev/nvme0n1"
+          "/dev/nvme1n1"
         ],
         "exit_status": 0
       },
@@ -212,8 +212,8 @@
         "asctime": "Fri Sep 19 13:55:26 2025 CEST"
       },
       "device": {
-        "name": "/dev/nvme0n1",
-        "info_name": "/dev/nvme0n1",
+        "name": "/dev/nvme1n1",
+        "info_name": "/dev/nvme1n1",
         "type": "nvme",
         "protocol": "NVMe"
       },

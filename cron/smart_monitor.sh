@@ -9,6 +9,7 @@ set -euo pipefail
 # Default configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="${SCRIPT_DIR}/smart_monitor.conf"
+TRACK_HISTORY=false
 OUTPUT_DIR="${SCRIPT_DIR}/output"
 HISTORY_DIR="${OUTPUT_DIR}/history"
 LOG_FILE="${SCRIPT_DIR}/smart_monitor.log"
@@ -31,7 +32,8 @@ Usage: $0 [OPTIONS]
 Options:
     -c, --config FILE      Configuration file (default: $CONFIG_FILE)
     -o, --output DIR       Output directory (default: $OUTPUT_DIR)
-    -t  --history DIR      History output devices (default: $HISTORY_DIR), files adhere devices naming pattern
+    -p  --history DIR      History output devices (default: $HISTORY_DIR), files adhere devices naming pattern
+    -t  --track BOOL           Save smart attributes to file (default: $TRACK_HISTORY)
     -l, --log FILE         Log file (default: $LOG_FILE, use "" to disable logging)
     -d, --devices PATTERN  Device pattern to scan (default: "$DEVICE_PATTERN")
     -e, --exclude PATTERN  Exclude devices matching pattern
@@ -236,6 +238,70 @@ EOF
     echo "$info_file"
 }
 
+
+store_history() {
+    local device="$1"
+    local smart_data="$2"
+    local device_name=$(basename "$device")
+    local output_file="${HISTORY_DIR}/${device_name}.json"
+    local tmp_file="${HISTORY_DIR}/${device_name}.tmp.json"
+    local new_file="${HISTORY_DIR}/${device_name}_new.json"
+    
+    if [[ ! -f "$output_file" ]]; then
+        log "Warning" "$output_file does not exist."
+        touch $output_file
+        log "Info" "created $output_file."
+
+    fi
+
+    log "INFO" "$device_name"
+
+   if [[ "$device_name" =~ ^sd+ ]]; then
+        log "INFO" "$device_name is ata"
+        if command -v jq &> /dev/null; then
+        jq -n \
+        --argjson timestamp "$(date +%s)" \
+        --slurpfile smart_data "$smart_data" \
+        '{
+            ($timestamp | tostring) : $smart_data[0].smart_attributes.ata_smart_attributes.table
+        }' > $tmp_file
+
+                #jq -n --slurpfile temp $tmp_file '. += $temp' > $output_file
+        jq -s '.[1] + .[0]' "$output_file" "$tmp_file" > "$new_file" && \
+        mv "$new_file" "$output_file"
+        #   Clean up
+        rm "$tmp_file"
+
+        log "INFO" "done with history"
+    fi
+   fi
+
+   if [[ "$device_name" =~ ^nvme+ ]]; then
+        log "INFO" "$device_name is nvme"
+        if command -v jq &> /dev/null; then
+        jq -n \
+        --argjson timestamp "$(date +%s)" \
+        --slurpfile smart_data "$smart_data" \
+        '{
+            ($timestamp | tostring) : $smart_data[0].smart_attributes.nvme_smart_health_information_log
+        }' > $tmp_file
+
+                #jq -n --slurpfile temp $tmp_file '. += $temp' > $output_file
+        jq -s '.[1] + .[0]' "$output_file" "$tmp_file" > "$new_file" && \
+        mv "$new_file" "$output_file"
+        #   Clean up
+        rm "$tmp_file"
+
+        log "INFO" "done with history"
+    fi
+   fi
+
+    
+
+
+} 
+
+
 # Function to convert smartctl output to JSON
 convert_to_json() {
     local input_file="$1"
@@ -284,6 +350,11 @@ EOF
             return
         fi
     fi
+    if [[ "$TRACK_HISTORY" == "true" ]]; then
+        log "INFO" "tracking history enabled"
+        store_history $device $input_file
+    fi
+    
 }
 
 # Function to create index.json file
@@ -590,7 +661,11 @@ main() {
                 OUTPUT_DIR="$2"
                 shift 2
                 ;;
-            -t|--history)
+            -t|--track)
+                TRACK_HISTORY=true
+                shift 
+                ;;
+            -p|--history)
                 HISTORY_DIR="$2"
                 shift 2
                 ;;
@@ -637,6 +712,7 @@ main() {
     
     # Create output directory if it doesn't exist
     mkdir -p "$OUTPUT_DIR"
+    mkdir -p "$HISTORY_DIR"
     
     # Create log file directory if it doesn't exist and LOG_FILE is specified
     if [[ -n "$LOG_FILE" ]]; then

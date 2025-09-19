@@ -10,6 +10,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="${SCRIPT_DIR}/smart_monitor.conf"
 OUTPUT_DIR="${SCRIPT_DIR}/output"
+HISTORY_DIR="${OUTPUT_DIR}/history"
 LOG_FILE="${SCRIPT_DIR}/smart_monitor.log"
 JSON_FORMAT="pretty"
 DEVICE_PATTERN="/dev/sd* /dev/nvme* /dev/hd*"
@@ -30,6 +31,7 @@ Usage: $0 [OPTIONS]
 Options:
     -c, --config FILE      Configuration file (default: $CONFIG_FILE)
     -o, --output DIR       Output directory (default: $OUTPUT_DIR)
+    -t  --history DIR      History output devices (default: $HISTORY_DIR), files adhere devices naming pattern
     -l, --log FILE         Log file (default: $LOG_FILE, use "" to disable logging)
     -d, --devices PATTERN  Device pattern to scan (default: "$DEVICE_PATTERN")
     -e, --exclude PATTERN  Exclude devices matching pattern
@@ -40,10 +42,10 @@ Options:
 
 Examples:
     $0                                    # Run with defaults
-    $0 -o /var/log/smart                 # Custom output directory
+    $0 -o /var/log/smart                  # Custom output directory
     $0 -l ""                              # Disable logging
-    $0 -d "/dev/sd*" -e "/dev/sda"      # Only scan /dev/sd* devices, exclude /dev/sda
-    $0 -f compact                        # Output compact JSON
+    $0 -d "/dev/sd*" -e "/dev/sda"        # Only scan /dev/sd* devices, exclude /dev/sda
+    $0 -f compact                         # Output compact JSON
 
 EOF
 }
@@ -556,6 +558,9 @@ create_config() {
 # Output directory for JSON files
 OUTPUT_DIR="${OUTPUT_DIR}"
 
+# Output directory for saving history of devices
+HISTORY_DIR="${HISTORY_DIR}"
+
 # Log file location (set to "" to disable logging)
 LOG_FILE="${LOG_FILE}"
 
@@ -583,6 +588,10 @@ main() {
                 ;;
             -o|--output)
                 OUTPUT_DIR="$2"
+                shift 2
+                ;;
+            -t|--history)
+                HISTORY_DIR="$2"
                 shift 2
                 ;;
             -l|--log)
